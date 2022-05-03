@@ -1,0 +1,34 @@
+<h1>Lista de Bairros</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+        <tr>
+    <thead>
+    <tbody>
+        <% @bairros.each do |bairro|%>
+            <tr>
+                <td><%= bairro.nome%></td>
+               
+                <td>
+                    <%= link_to({:action => :destroy, :id => bairro.id},method: :delete,
+                        :confirm => "Você tem certeza?") do %>
+                        <%= image_tag 'https://icons.iconarchive.com/icons/awicons/vista-artistic/16/delete-icon.png' %>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to "Editar", edit_bairro_path(bairro.id) %>
+                </td>
+                <td>
+                    <%= link_to "Visualizar" ,  bairro%>
+                </td>
+                <td>
+                    <%= link_to(:action => :edit, :id => bairro.id) do %>
+                    <%= image_tag 'page_edit.png' %>
+                    <% end %>
+                </td> 
+            </tr>
+        <%end%>
+    </tbody>
+    <%= link_to 'Nova Bairro', new_bairro_path %>
+</table>

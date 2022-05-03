@@ -1,0 +1,25 @@
+<% if @cidade.errors.any? %>
+  <div style='color:red;'>
+    Não foi possível salvar a cidade por <%=
+    pluralize(@cidade.errors.size, 'motivo') %>:
+    <ul>
+      <% @cidade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @cidade do |f| %>
+
+  <%= f.label :nome %><br>
+  <%= f.text_field :nome, maxlength: 32, required: true %><br>
+
+  <%= f.label :qtde_hambiatntes, 'Qtde. habitantes' %><br>
+  <%= f.text_field :qtde_habitantes,  maxlength: 32, required: true %><br>
+   <%= f.label :estado_id, 'Estado' %><br>
+ 
+    <%= f.select :estado_id, options_from_collection_for_select(Estado.all, :id, :sigla, @cidade.estado_id) %><br>
+  
+  <%= f.submit "Submit" %>
+<% end %>

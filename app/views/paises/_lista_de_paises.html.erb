@@ -1,0 +1,12 @@
+<table>
+    <thead>
+    <tr><th colspan="2">Lista Pais</th></tr>
+    </thead>
+
+    <tr>
+        <th>Nome</th>
+    </tr>   
+    <% paises.each do |pais| %>
+    <tr><td><%= pais[:nome] %></td>
+    <% end %>
+</table>

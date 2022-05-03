@@ -1,0 +1,12 @@
+<table>
+    <thead>
+    <tr><th colspan="2">Lista Bairros</th></tr>
+    </thead>
+
+    <tr>
+        <th>Nome</th>
+    </tr>   
+    <% bairros.each do |bairro| %>
+    <tr><td><%= bairro[:nome] %></td>
+    <% end %>
+</table>

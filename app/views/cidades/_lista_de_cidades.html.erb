@@ -1,0 +1,14 @@
+<table>
+    <thead>
+    <tr><th colspan="2">Lista Cidades</th></tr>
+    </thead>
+
+    <tr>
+        <th>Nome</th>
+        <th>N de Habitantes</th>
+    </tr>   
+    <% cidades.each do |cidade| %>
+    <tr><td><%= cidade[:nome] %></td
+    ><td><%= cidade[:habitantes] %> anos</td></tr>    
+    <% end %>
+</table>

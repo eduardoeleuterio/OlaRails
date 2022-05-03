@@ -1,0 +1,34 @@
+<h1>Lista de Paises</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+        <tr>
+    <thead>
+    <tbody>
+        <% @paises.each do |pais|%>
+            <tr>
+                <td><%= pais.nome%></td>
+               
+                <td>
+                    <%= link_to({:action => :destroy, :id => pais.id},method: :delete,
+                        :confirm => "Você tem certeza?") do %>
+                        <%= image_tag 'https://icons.iconarchive.com/icons/awicons/vista-artistic/16/delete-icon.png' %>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to "Editar", edit_pais_path(pais.id) %>
+                </td>
+                <td>
+                    <%= link_to "Visualizar" ,  pais%>
+                </td>
+                <td>
+                    <%= link_to(:action => :edit, :id => pais.id) do %>
+                    <%= image_tag 'page_edit.png' %>
+                    <% end %>
+                </td> 
+            </tr>
+        <%end%>
+    </tbody>
+    <%= link_to 'Nova Pais', new_pais_path %>
+</table>

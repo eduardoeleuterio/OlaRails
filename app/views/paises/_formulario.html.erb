@@ -1,0 +1,19 @@
+<% if @pais.errors.any? %>
+  <div style='color:red;'>
+    Não foi possível salvar o pais por <%=
+    pluralize(@pais.errors.size, 'motivo') %>:
+    <ul>
+      <% @pais.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @pais do |f| %>
+
+  <%= f.label :nome %><br>
+  <%= f.text_field :nome, maxlength: 32, required: true %><br>
+  
+  <%= f.submit "Submit" %>
+<% end %>

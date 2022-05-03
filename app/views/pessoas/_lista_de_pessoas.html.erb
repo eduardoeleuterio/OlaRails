@@ -1,0 +1,16 @@
+
+<table>
+    <thead>
+    <tr><th colspan="2">Tabela pessoas</th></tr>
+    </thead>
+
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+    </tr>   
+    <% pessoas.each do |pessoa| %>
+    <tr><td><%= pessoa[:nome] %></td
+    ><td><%= pessoa[:idade] %> anos</td></tr>    
+    <% end %>
+</table>
+ 

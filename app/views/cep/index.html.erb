@@ -1,0 +1,37 @@
+<h1>Lista de cidades</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Estado</th>
+            <th>qtd Habitantes</th>
+        <tr>
+    <thead>
+    <tbody>
+        <% @cidades.each do |cidade|%>
+            <tr>
+                <td><%= cidade.nome%></td>
+                <td><%= cidade.estado.nome%></td>
+                <td><%= cidade.qtde_habitantes%></td>
+                <td>
+                    <%= link_to({:action => :destroy, :id => cidade.id},method: :delete,
+                        :confirm => "Você tem certeza?") do %>
+                        <%= image_tag 'https://icons.iconarchive.com/icons/awicons/vista-artistic/16/delete-icon.png' %>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to "Editar", edit_cidade_path(cidade.id) %>
+                </td>
+                <td>
+                    <%= link_to "Visualizar" ,  cidade%>
+                </td>
+                <td>
+                    <%= link_to(:action => :edit, :id => cidade.id) do %>
+                    <%= image_tag 'page_edit.png' %>
+                    <% end %>
+                </td> 
+            </tr>
+        <%end%>
+    </tbody>
+    <%= link_to 'Nova cidade', new_cidade_path %>
+</table>

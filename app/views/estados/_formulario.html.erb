@@ -1,0 +1,22 @@
+<% if @estado.errors.any? %>
+  <div style='color:red;'>
+    Não foi possível salvar a cidade por <%=
+    pluralize(@estado.errors.size, 'motivo') %>:
+    <ul>
+      <% @estado.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @estado do |f| %>
+
+  <%= f.label :nome %><br>
+  <%= f.text_field :nome, maxlength: 32, required: true %><br>
+
+  <%= f.label :sigla, 'Sigla' %><br>
+  <%= f.text_field :sigla,  maxlength: 4, required: true %><br>
+
+  <%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,19 @@
+<% if @bairro.errors.any? %>
+  <div style='color:red;'>
+    Não foi possível salvar o bairro por <%=
+    pluralize(@cidade.errors.size, 'motivo') %>:
+    <ul>
+      <% @bairro.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @bairro do |f| %>
+
+  <%= f.label :nome %><br>
+  <%= f.text_field :nome, maxlength: 32, required: true %><br>
+  
+  <%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,25 @@
+<% if @cep.errors.any? %>
+  <div style='color:red;'>
+    Não foi possível salvar o cep por <%=
+    pluralize(@cep.errors.size, 'motivo') %>:
+    <ul>
+      <% @cep.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @cep do |f| %>
+
+  <%= f.label :logradouro%><br>
+  <%= f.text_field :logradouro, maxlength: 32, required: true %><br>
+
+  <%= f.label :cep, 'Qtde. habitantes' %><br>
+  <%= f.text_field :cep,  maxlength: 32, required: true %><br>
+   <%= f.label :bairro_id, 'Bairro' %><br>
+ 
+    <%= f.select :estado_id, options_from_collection_for_select(Estado.all, :id, :sigla, @cidade.estado_id) %><br>
+  
+  <%= f.submit "Submit" %>
+<% end %>

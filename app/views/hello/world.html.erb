@@ -1,0 +1,10 @@
+<div align='center'>
+    <p><h1>Hello World!</h1></p>
+    <p> Minha primeria página no rails funcionou! </p>
+    <p>Alfabeto: <%= @alfabeto.join(', ')%> </p>
+    <p>Hash: <%= @hash.keys.first%>: <%= @hash.values.first%></p>
+    <p>Array:</p>
+    <% @pessoas.each do |item| %>
+        Nome <%= item[:nome] %>Idade; <%= item[:Idade]%><br>
+    <% end %>
+</div>

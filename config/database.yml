@@ -1,0 +1,26 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: helloword_development
+  host: localhost
+  pool: 5
+  username: eduardo
+  password: eduardo1
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: helloword_test
+  host: localhost
+  pool: 5
+  username: eduardo
+  password: eduardo1
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: helloword_production
+  pool: 5
+  username: helloword
+  password:
